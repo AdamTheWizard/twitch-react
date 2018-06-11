@@ -1,43 +1,52 @@
 import React, { Component } from 'react';
 import './App.css';
 import {Header} from "./Header";
-import {ProfileCard} from "./ProfileCard";
 import {Footer} from "./Footer";
 
 
 const streamers = ["ninja", "dakotaz", "DrDisRespectLIVE", "TSM_Myth", "Loserfruit", "NICKMERCS", "Pineaqples", "CDNThe3rd", "KingRichard"];
 
-const makeUrl = name => 'https://wind-bow.glitch.me/twitch-api/users/${name}';
-
-const returnPromises = streamers.map(name => fetch(makeUrl(name)));
-
-const test = Promise.all(returnPromises);
+const userURL = "https://wind-bow.glitch.me/twitch-api/users/";
 // const statusUrl = "https://wind-bow.glitch.me/twitch-api/streams/"
+
+
 
 class App extends Component {
   constructor(props){
     super(props);
-    this.state= {
+    this.state = {
       userData: []
     }
   }
   
-  
   componentDidMount(){
-
-      test.then(values => this.setState({userData: values}))
+    for (let i = 0; i < streamers.length; i++){
+      fetch(userURL + streamers[i])
+      .then(response => response.json())
+      .then(data => {
+        this.state.userData.push(data);
+      })
+      
+    }
+    console.log(this.state.userData)
+    console.log(this.state.userData.name)
+    
+      
   }
   
   render() {
-    const userData = this.state.userData;
+    
     return (
       <div className="App">
         <Header />
-        {userData.map(firstname => (
-            <ProfileCard firstname={firstname} />
-          ))
-        }
-        <ProfileCard />
+        <ul>
+          {
+            this.state.userData.map(function(users, i){
+              console.log("test");
+              return <li>{users.name}</li>
+            })
+          }
+        </ul>
         <Footer />
       </div>
     );
