@@ -10,7 +10,6 @@ const userURL = "https://wind-bow.glitch.me/twitch-api/users/";
 // const statusUrl = "https://wind-bow.glitch.me/twitch-api/streams/"
 
 
-
 class App extends Component {
   constructor(props){
     super(props);
@@ -24,26 +23,21 @@ class App extends Component {
       fetch(userURL + streamers[i])
       .then(response => response.json())
       .then(data => {
-        this.state.userData.push(data);
+        let userData = [...this.state.userData, data];
+        this.setState({userData});
       })
-      
     }
-    console.log(this.state.userData)
-    console.log(this.state.userData.name)
-    
-      
   }
   
   render() {
-    
     return (
       <div className="App">
         <Header />
         <ul>
           {
-            this.state.userData.map(function(users, i){
-              console.log("test");
-              return <li>{users.name}</li>
+            this.state.userData.map(function(user, i){
+              console.log(user);
+              return <li key={i}>{user.name}</li>
             })
           }
         </ul>
