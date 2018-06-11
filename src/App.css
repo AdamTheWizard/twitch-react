@@ -1,0 +1,90 @@
+
+.headerContainer {
+  width:100%;
+  text-align:center;
+  padding:0;
+  
+}
+
+h1 {
+  color:#4B367C;
+  font-family: 'Patua One', cursive;
+  margin:5px;
+}
+
+.headerButton {
+  margin:5px 20px 10px 20px;
+  background:none;
+  border:none;
+  color:#4B367C;
+}
+
+.profileCardContainer {
+  background-color:#4B367C;
+  width: 100%;
+  height:100px;
+}
+
+.avatarImageContainer {
+  padding:5px;
+}
+
+.avatarImage {
+  width:45px;
+  display:block;
+  margin:10px auto 5px auto;
+  padding:5px;
+  border:2px solid #fff;
+  border-radius:50%;
+}
+
+.usernameContainer {
+  text-align:center;
+  color:#fff;
+  font-weight:100;
+}
+
+.displayname {
+  margin:0;
+  padding:0;
+  text-transform: uppercase;
+}
+
+.statusDotContainer {
+  width:100%;
+  text-align:center;
+  color:#1199FF;
+}
+.dotty {
+  margin:15px;
+}
+.statusText {
+  margin:0;
+  padding:0;
+}
+.bioContainer {
+  text-align:center;
+  color:#fff;
+  padding-bottom:auto;
+  font-weight:100;
+  padding:0 20px;
+}
+.bioText {
+  margin:0;
+  padding:5px 0 40px 0;
+}
+
+.footerContainer {
+  width:100%;
+  text-align:center;
+  margin:30px auto;
+}
+.footerIcon {
+  color:#4B367C;
+  font-size:250%;
+  margin:10px;
+  cursor:pointer;
+}
+.footerText {
+  font-size:70%;
+}
