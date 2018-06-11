@@ -10,14 +10,27 @@ const userUrl = "https://wind-bow.glitch.me/twitch-api/users/";
 // const statusUrl = "https://wind-bow.glitch.me/twitch-api/streams/"
 
 class App extends Component {
-  constructor(props){
-    super(props);
+  
+  componentDidMount(){
+
+      fetch(userUrl + streamers[0])
+      .then(response => response.json())
+      .then(data => {
+      console.log(data);
+      console.log(data.name);
+      console.log(data.bio);
+      console.log(data.logo);
+    });
   }
   
   render() {
     return (
       <div className="App">
         <Header />
+        {streamers.map(firstname => (
+            <ProfileCard firstname={firstname} />
+          ))
+        }
         <ProfileCard />
         <Footer />
       </div>
